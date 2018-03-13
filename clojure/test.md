@@ -24,13 +24,15 @@
 
 * 당연히 clojure map이라고 착각했다. ~~바보~~
 * 이미 app의 리턴으로 json이 나왔을 텐데 map이라고 착각하고 열어보려고 한 죄.
-* 내가 비교할 결과를 json-body로 싸거나, 모델의 test 를 만들자
+* 내가 비교할 결과를 json-body로 싸거나, (json으로 나온)결과를 map으로 바꾸거나, 모델의 test 를 만들자
+
+```clojure
+;; json으로 나온 결과를 map으로 파싱하는 방법
+(parse-string (slurp (:body response)) true)
+```
 
 ### 결론
 
 * 디버그 환경을 좀더 구축하자.
 * 어차피 현재는 핸들러 테스트를 하려는 것이지, 로직 테스트는 아니기 때문에 json body를 고치는 것보다 모델의 테스트를 만드는 걸로.
 * 결국은 ByteArrayInputStream과는 상관없는 이야기가 되어버렸다. 해당 에러를 보면 내가 어떤 포맷을 보려고 했는지 잘 생각해보자.
-
-
-
