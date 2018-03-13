@@ -4,4 +4,5 @@
 * [Lambda](lambda.md)
 * [Haskell](haskell.md)
 * [Util](util.md)
+* [Clojure](clojure.md)
 
