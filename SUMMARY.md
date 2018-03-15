@@ -6,4 +6,5 @@
 * [Lambda](lambda.md)
 * [Haskell](haskell.md)
 * [Util](util.md)
+* [Raft](raft.md)
 
