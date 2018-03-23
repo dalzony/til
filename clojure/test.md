@@ -37,7 +37,7 @@
 * 어차피 현재는 핸들러 테스트를 하려는 것이지, 로직 테스트는 아니기 때문에 json body를 고치는 것보다 모델의 테스트를 만드는 걸로.
 * 결국은 ByteArrayInputStream과는 상관없는 이야기가 되어버렸다. 해당 에러를 보면 내가 어떤 포맷을 보려고 했는지 잘 생각해보자.
 
-## \n 과 \\n (문자열 escape)
+## \n 과 \\n (문자열 escape) : 테스트 mocking을 하다 생긴일
 
 - api개발시 swagger 나 postman 등의 클라이언트request에는 `abc\nd`으로 보내는 것이 test나 clojure 코드 내에서는 `abc\\nd`로 만들어야 같은 문자열로 인식한다.
 - escape 문제라는 것은 알겠는데, 계속 헷갈리기에 `clojure.string/split` 함수를 보며 간단히 정리해보자.
@@ -66,7 +66,7 @@
 - https://clojuredocs.org/clojure.string/escape 이런 것도 있지만, 여기선 진짜 문자열 변환이니까 또 다른 문제이다.
 - 요청/응답 처리를 할 때, 정신을 똑바로 차리자.
 
-## slurp, stream
+## slurp, stream : test 중에 값을 꺼내다가 생긴 일
 
 ```clojure
 (let [body (parse-string (slurp (:body response)) true)]
