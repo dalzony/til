@@ -40,7 +40,7 @@
               (source/from-env)))
 ```
 
-system, 환경이나 from-env로는 못읽는건가 -_-
+### 다시 애매한 부분 추가
 
- System.getenv와  System.getProperty의 차이는 뭐지
- 이 두개도 머지를 하는데?
+- system, 환경이나 from-env로는 못읽는건가 -_-
+- System.getenv와  System.getProperty의 차이는 뭐지, 이 두개도 머지를 하는데?
