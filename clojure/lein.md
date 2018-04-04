@@ -31,3 +31,16 @@
 - 현재쓰는 템플릿은 프로필을 project.clj에 지정해놓고 쓰는 방식이다.
 - main함수의 구현이 서비스 포트 변경은 가능하지만, 기타 다른 환경변수는 파일 하나 추가해서는 불가능한 구조
 - `lein run -Daaa-port=1238` 이런것도 luminus에서는 되지만 현재 자체 템플릿에서는 안됨.
+
+
+```clojure
+(defn env []
+  (merge-maps (or (load-lein-env) {})
+              (source/from-system-props)
+              (source/from-env)))
+```
+
+system, 환경이나 from-env로는 못읽는건가 -_-
+
+ System.getenv와  System.getProperty의 차이는 뭐지
+ 이 두개도 머지를 하는데?
