@@ -4,7 +4,7 @@
 
 - nth를 쓰지 않고 nth를 구현해보기, 우선 nnth를 구현해봤다.
 
-```clj
+```clojure
 (defn nnth [c n]
   (if (= n 0)
     (first c)
