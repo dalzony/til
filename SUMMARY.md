@@ -6,7 +6,9 @@
   * [lein](clojure/lein.md)
   * [luminus](clojure/luminus.md)
   * [4clojure](clojure/4clojure.md)
-  * [Testing](clojure/test.md)
+  * [testing](clojure/test.md)
 * [Util](util.md)
 * [Raft](raft.md)
+  * [발표내용](raft/presentation.md)
+  * [논문번역](raft/paper_tranlated.md)
 
