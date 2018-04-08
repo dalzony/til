@@ -19,7 +19,7 @@
 - 처음 봤던 blog
   - http://i5on9i.blogspot.kr/2016/09/raft.html
   - https://www.slideshare.net/kairosfox/raft-consensus-algorithm
-  - [슭의블로그](https://blog.seulgi.kim/2017/11/raft-consensus-algorithm.html)
+  - [슭의 개발 블로그](https://blog.seulgi.kim/2017/11/raft-consensus-algorithm.html) : 한글 자료중엔 가장 도움이 많이 됨
 
 ## 컨센서스 알고리즘에서 나오는 단어들
 
