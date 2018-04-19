@@ -55,3 +55,8 @@
 ```
 
 * loop, recur, 꼬리재귀 내용은 => [Clojure-usage](https://dalzony.gitbooks.io/til/content/clojure/usage.html)
+* 모범답안 풀이는 약간 충격적이었다. ~~아 이렇게해도 되는구나 ㅜㅜ~~
+
+```clojure
+#(reduce + (map (constantly 1) %))
+```
