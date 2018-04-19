@@ -40,7 +40,18 @@
 * 문제는 fn 노테이션을 잘 구현하지 못하겠는데, `loop`과 `recur`, `꼬리재귀`를 이번 참에 잘 정리하고 가야겠다.
 * argument에 `:or`노테이션이 있는데, 이것도 잘 정리해봐야겠다.
 
-### 답
+### 답 (loop, recur 활용)
 
-\(아직\)
+* `loop`과 `recur` 사용
+* 다중 인자는 받지 않음 (fn 구문에서는 defn과 같은 노테이션이 지원되지도 않음)
 
+```clojure
+(fn [c]
+  (loop [cc c
+         n 0]
+    (if (empty? cc)
+      n
+      (recur (rest cc) (inc n)))))
+```
+
+* loop, recur, 꼬리재귀 내용은 => [Clojure-usage](https://dalzony.gitbooks.io/til/content/clojure/usage.html)
