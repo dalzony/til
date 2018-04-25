@@ -60,3 +60,33 @@
 ```clojure
 #(reduce + (map (constantly 1) %))
 ```
+
+
+## reverse 구현 \(no.23\)
+
+reverse, rseq쓰지 않고 reverse 구현하기.
+역시나 재귀를 쓰지 않고 간단히 할 방법을 찾고 있었는데... 그냥 into자체가 거꾸로 내뱉네;;
+뭐지 into..?
+
+```
+;; 내가 푼 재귀
+
+(fn [c]
+  (loop [nl []
+         cc c]
+    (if (empty? cc)
+      nl
+      (recur (cons (first cc) nl) (rest cc)))))
+```
+
+```
+;; into를 사용한 것
+#(into () %)
+
+예:
+(#(into () %) [1 2 3 4 5])
+(5 4 3 2 1)
+```
+
+- into는 최대 3개의 인자를 받는데, 그 때마다 동작이 조금씩 다르니 참고하자.
+  - http://clojuredocs.org/clojure.core/into
