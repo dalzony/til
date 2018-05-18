@@ -15,3 +15,11 @@ sudo rm -rf /usr/local/var/mysql
 ```
 
 이렇게하고 brew install mysql 하면 깔끔하게 새 설치가 된다.
+
+## json 컬럼을 쓰는 table 생성하기
+
+```sql
+CREATE TABLE table_name (
+	col_name JSON
+);
+```
