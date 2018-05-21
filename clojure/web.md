@@ -23,3 +23,37 @@ Caused by: com.mysql.cj.core.exceptions.InvalidConnectionAttributeException: The
 ```
 
 자세한 것은 좀더 알아보고 mysql페이지에 정리할 예정.
+
+## conmman 라이브러리 사용
+
+### JSON 컬럼을 사용할 때
+
+json컬럼의 값들을 select로 가져왔을때,string으로 결과가 나오고, 이를 클로저 맵으로 변환이 필요했다.
+상황은 이랬다.
+
+`hugsql`의 queries.sql에서 select구문을 사용중이고, 응답도 잘 나오는데, swagger-ui에서 계속, 잘못된 포맷이라고 나온다.
+해당 쿼리 결과를 잘 보다보니,
+
+```
+#결과 찍어봤을때...
+[ {:a_key "a-value", :b {"c": "cc", "d": "cccc"}} ....]
+```
+
+내가 :b의 value를 json으로 쓰고 있는데, 이것이 string으로 들어간 느낌이 있다.
+묘하게 해시맵 같이 생겨서 계속 눈치를 못챈 것 같다.
+class 를 찍어보니, 역시나!! `java.lang.String`이다.
+
+자 이제 어떻게할까.
+
+#### parse-string과 익명함수 축제
+
+```
+require [cheshire.core :refer [parse-string]])
+
+(def m [ {:a_key "a-value", :b {"c": "cc", "d": "cccc"}} ....])
+(map (fn [x] (update x :b (fn [y] (parse-string y (fn [k] (keyword k)))))) m)
+```
+
+단순히 parse-string만 쓰고 싶었지만, 그러면 또 string 키의 string 값의 맵이 된다.
+keyword 키와, string이 값인 맵을 써야하므로.. 우선 저렇게 구현했는데, parse-string 쪽 함수를 빼는 편이 낫겟지.
+conman과  hugsql에서 json 리턴은 알아서 변환해주면 좋으련만..
