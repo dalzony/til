@@ -38,3 +38,13 @@ https://gist.github.com/bbengfort/5807825
 
 http://lollyrock.com/articles/nodejs-encryption/
 이것도 좋아보임
+
+
+openssl list-cipher-algorithms
+joony@Joony-MBP:~|⇒  openssl list-cipher-algorithms
+openssl:Error: 'list-cipher-algorithms' is an invalid command.
+
+invalid이지만 결과가 나옴
+
+
+http://yijiebuyi.com/blog/13e2ae33082ac12ba4946b033be04bb5.html
