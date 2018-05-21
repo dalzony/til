@@ -23,3 +23,12 @@ CREATE TABLE table_name (
 	col_name JSON
 );
 ```
+
+
+## specifc typo (=> specific)
+
+https://github.com/mysql/mysql-connector-j/blob/b3cda4f864902ffdde495b9df93937c3e20009be/src/com/mysql/jdbc/LocalizedErrorMessages.properties
+
+풀리케날리고싶다.
+이슈라도 적고싶다.
+oracle 가입을 해야해서 매우 허들.
