@@ -2,6 +2,22 @@
 
 * 루미너스와는 디펜던시가 많지 않은 개발사건\(?\)들
 
+## conman 라이브러리 사용tl jdbc driver 에러
+
+루미너스를 사용하지 않고, conman라이브러리를 사용해서 db(mysql)를 연결하려고 하니, 계속 드라이버 관련 에러가 난다.
+
+```
+Caused by: java.lang.RuntimeException: Failed to get driver instance for jdbcUrl=jdbc:mysql://localhost:3306/dbname?user=user&password=pw
+
+...
+
+Caused by: java.sql.SQLException: No suitable driver
+...
+```
+
+ conman이 루미너스의 helper이기 때문에 관련 에러이려나... 했는데, 그게 아니라 mysql을 쓰려면 jdbc 드라이버가 필요한 까닭이었다.
+ 해당 드라이버를 사용하려면 `[mysql/mysql-connector-java "6.0.5"]`를 project.clj에 디펜던시로 추가하면 된다.
+
 ## mysql TIMEZONE 문제
 
 클로저 web api에서 mysql을 연결하려고 했더니
