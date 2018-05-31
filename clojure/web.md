@@ -32,13 +32,17 @@ Caused by: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed
 Caused by: com.mysql.cj.core.exceptions.InvalidConnectionAttributeException: The server time zone value 'KST' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 ```
 
-해결방법이 2가지가 있는 것 같은데,(문제해결도 부족한 상황이라) 우선은 jdbc-url에 TIMEZONE(serverTimezone=UTC)을 명시해서 끝냈다.
+우선은 jdbc-url에 TIMEZONE(serverTimezone=UTC)을 명시해서 끝냈다.
 
 ```clojure
 {:jdbc-url (format  "mysql://%s:%s/%s?user=%s&password=%s&serverTimezone=UTC" host port name user password)}
 ```
 
-자세한 것은 좀더 알아보고 mysql페이지에 정리할 예정.
+5.xx대 부터는 비슷한 문제들이 있어서, KST관련 모듈을 설치해야한다는 말도 있는데, DB전문가(?)의 답변은 일단 KST를 쓰려면 같은 옵션에서 Asia/Seoul을 쓰면 되는 것으로.
+
+```clojure
+{:jdbc-url (format  "mysql://%s:%s/%s?user=%s&password=%s&serverTimezone=Asia/Seoul" host port name user password)}
+```
 
 ## conmman 라이브러리 사용
 
