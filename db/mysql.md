@@ -32,3 +32,9 @@ https://github.com/mysql/mysql-connector-j/blob/b3cda4f864902ffdde495b9df93937c3
 풀리케날리고싶다.
 이슈라도 적고싶다.
 oracle 가입을 해야해서 매우 허들.
+
+##  DB 생성하기 커맨드
+
+```
+create database [DB명];
+```
