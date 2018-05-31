@@ -44,6 +44,8 @@ Caused by: com.mysql.cj.core.exceptions.InvalidConnectionAttributeException: The
 {:jdbc-url (format  "mysql://%s:%s/%s?user=%s&password=%s&serverTimezone=Asia/Seoul" host port name user password)}
 ```
 
+- [TIMEZONE 확인 참고](https://dalzony.gitbook.io/til/db/mysql#timzone)
+
 ## conmman 라이브러리 사용
 
 ### JSON 컬럼을 사용할 때
