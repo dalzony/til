@@ -38,3 +38,31 @@ oracle 가입을 해야해서 매우 허들.
 ```
 create database [DB명];
 ```
+
+## TIMZONE 확인하기 쿼리
+
+```
+mysql> select now();
++——————————+
+| now()               |
++——————————+
+| 2018-05-24 15:43:44 |
++——————————+
+1 row in set (0.00 sec)
+
+mysql> select @@global.time_zone;
++——————————+
+| @@global.time_zone |
++——————————+
+| SYSTEM             |
++——————————+
+1 row in set (0.00 sec)
+
+mysql>  select @@session.time_zone;
++——————————+
+| @@session.time_zone |
++——————————+
+| SYSTEM              |
++——————————+
+1 row in set (0.00 sec)
+```
