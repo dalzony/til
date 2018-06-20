@@ -11,6 +11,7 @@
 * [DB](db/README.md)
   * [mongodb](db/mongodb.md)
   * [mysql](db/mysql.md)
+* [TDD study](tdd-study.md)
 * [Util](util.md)
 * [Raft](raft/README.md)
   * [발표내용](raft/undefined.md)
@@ -21,5 +22,4 @@
   * [암복호화 알고리즘](security/undefined-1.md)
   * [공개키 알고리즘](security/undefined-2.md)
 * [임시저장페이지](undefined.md)
-* [TDD study](tdd-study.md)
 
