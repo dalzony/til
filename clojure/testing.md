@@ -1,10 +1,10 @@
-# Test
+# testing
 
 ## 테스트를 하다가 ByteArrayInputStream 관련 에러를 만남
 
 * `/a/b/c`로의 요청을 했을 때에는 json 으로 응답이 잘 오는데 ring의 mock을 써서 응답을 받으면 ByteArrayInputStream으로 오는 상황
 
-```
+```text
 #응답 예
 :body #object[java.io.ByteArrayInputStream 0x56fae55c java.io.ByteArrayInputStream@56fae55c]
 ```
@@ -12,21 +12,19 @@
 ### 응답 크기가 영향을 줄 수 있을까?
 
 * [검색 결과](http://baeksupervisor.tistory.com/39) 를 보면 그럴 수도.
-
   * ByteArrayInputStream 클래스는 바이트 배열을 차례로 읽어들이는 클래스
   * ByteArrayOutputStream 클래스는 내부 저장공간에 바이트 배열을 저장하는 클래스
   * ByteArrayOutputStream의 toByteArray\(\)메소드를 통해 저장공간에 있는 내용을 얻을 수 있다.
   * JVM이 다루는 힙 메모리 사이즈 보다 큰 배열을 사용할 수 없다.
-
 * 테스트를 실수해서 크기가 영향을 받은 것 처럼 보였다...
 
 ### mock의 결과가 json인데...
 
 * 당연히 clojure map이라고 착각했다. ~~바보~~
 * 이미 app의 리턴으로 json이 나왔을 텐데 map이라고 착각하고 열어보려고 한 죄.
-* 내가 비교할 결과를 json-body로 싸거나, (json으로 나온)결과를 map으로 바꾸거나, 모델의 test 를 만들자
+* 내가 비교할 결과를 json-body로 싸거나, \(json으로 나온\)결과를 map으로 바꾸거나, 모델의 test 를 만들자
 
-```clojure
+```text
 ;; json으로 나온 결과를 map으로 파싱하는 방법
 (parse-string (slurp (:body response)) true)
 ```
@@ -37,12 +35,12 @@
 * 어차피 현재는 핸들러 테스트를 하려는 것이지, 로직 테스트는 아니기 때문에 json body를 고치는 것보다 모델의 테스트를 만드는 걸로.
 * 결국은 ByteArrayInputStream과는 상관없는 이야기가 되어버렸다. 해당 에러를 보면 내가 어떤 포맷을 보려고 했는지 잘 생각해보자.
 
-## `\n` 과 `\\n` (문자열 escape) : 테스트 mocking을 하다 생긴일
+## `\n` 과 `\\n` \(문자열 escape\) : 테스트 mocking을 하다 생긴일
 
-- api개발시 swagger 나 postman 등의 클라이언트request에는 `abc\nd`으로 보내는 것이 test나 clojure 코드 내에서는 `abc\\nd`로 만들어야 같은 문자열로 인식한다.
-- escape 문제라는 것은 알겠는데, 계속 헷갈리기에 `clojure.string/split` 함수를 보며 간단히 정리해보자.
+* api개발시 swagger 나 postman 등의 클라이언트request에는 `abc\nd`으로 보내는 것이 test나 clojure 코드 내에서는 `abc\\nd`로 만들어야 같은 문자열로 인식한다.
+* escape 문제라는 것은 알겠는데, 계속 헷갈리기에 `clojure.string/split` 함수를 보며 간단히 정리해보자.
 
-```clojure
+```text
 ;; 주의할 점 : 단순히 문자열 \ㅜㅜㅜㅜn을 찾아서 자른 것이 아니다, escape가 동작한 것이다.
 (require '[clojure.string :as str])
 (def s "a\nbb\\ncccc\\\nd")
@@ -62,16 +60,18 @@
 
 ### 여담
 
-- 내가 클로저를 사용하면서 `(def temp "aaa\n")`와 같이 바인딩을 할 때, escape문자를 쓰지 않고 "aaa\n" 자체를 raw 값으로 바인딩하고 싶지만, 그럴 순 없다. 다른 언어도 대부분 마찬가지 일 것이다. 애초에 string 객체를 만들 때 escape 할테니까.
-- https://clojuredocs.org/clojure.string/escape 이런 것도 있지만, 여기선 진짜 문자열 변환이니까 또 다른 문제이다.
-- 요청/응답 처리를 할 때, 정신을 똑바로 차리자.
+* 내가 클로저를 사용하면서 `(def temp "aaa\n")`와 같이 바인딩을 할 때, escape문자를 쓰지 않고 "aaa\n" 자체를 raw 값으로 바인딩하고 싶지만, 그럴 순 없다. 다른 언어도 대부분 마찬가지 일 것이다. 애초에 string 객체를 만들 때 escape 할테니까.
+* [https://clojuredocs.org/clojure.string/escape](https://clojuredocs.org/clojure.string/escape) 이런 것도 있지만, 여기선 진짜 문자열 변환이니까 또 다른 문제이다.
+* 요청/응답 처리를 할 때, 정신을 똑바로 차리자.
 
 ## slurp, stream : test 중에 값을 꺼내다가 생긴 일
 
-```clojure
+```text
 (let [body (parse-string (slurp (:body response)) true)]
   (println body)
   (println  (slurp (:body response))))
 ```
-- 두개의 print 결과물을 기대했는데, 첫번째 body만 출력된다. 음?
-- response 가 stream이고 https://clojuredocs.org/clojure.java.io/input-stream, slurp로 한번 빨아들였기 (?) 때문에, 두번째 slurp에서는 동작하지 않은 것, 값이 여러번 필요할 때는 let으로 적절히 바인딩해서 쓰자.
+
+* 두개의 print 결과물을 기대했는데, 첫번째 body만 출력된다. 음?
+* response 가 stream이고 [https://clojuredocs.org/clojure.java.io/input-stream](https://clojuredocs.org/clojure.java.io/input-stream), slurp로 한번 빨아들였기 \(?\) 때문에, 두번째 slurp에서는 동작하지 않은 것, 값이 여러번 필요할 때는 let으로 적절히 바인딩해서 쓰자.
+

@@ -1,4 +1,4 @@
-# nodejs
+# Node.js
 
 잠시 쓸일이 생겼다.
 
@@ -6,9 +6,9 @@
 
 version 4.x..
 
-https://nodejs.org/docs/latest-v4.x/api/synopsis.html
+[https://nodejs.org/docs/latest-v4.x/api/synopsis.html](https://nodejs.org/docs/latest-v4.x/api/synopsis.html)
 
-```js
+```javascript
 const http = require('http');
 
 const hostname = '127.0.0.1';
@@ -25,7 +25,7 @@ server.listen(port, hostname, () => {
 });
 ```
 
-```sh
+```bash
 => node hello.js
 ```
 
@@ -33,5 +33,6 @@ server.listen(port, hostname, () => {
 
 나는 5.xx를 가지고 있었는데, 4.x..의 프로젝트에서 계속 디펜던시를 못 받아옴
 
-- nvm을 사용하자
-- nvm install [version]을 쓰면 해당 로컬 컴퓨터의 환경은 해당 version이 설치되고 설정됨.
+* nvm을 사용하자
+* nvm install \[version\]을 쓰면 해당 로컬 컴퓨터의 환경은 해당 version이 설치되고 설정됨.
+
