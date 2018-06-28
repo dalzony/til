@@ -2,6 +2,40 @@
 
 개인 파일을 추가해서, 로컬에서는 다른 포트로 서비스를 띄우고 싶음
 
+## lein try
+
+https://github.com/rkneufeld/lein-try
+
+```
+;; All alone:
+[lein-try "0.4.3"]
+
+;; The whole thing:
+{:user {:plugins [[lein-try "0.4.3"]]}}
+```
+
+### xchart를 lein try로 사용해보기
+
+```
+$ lein try com.hypirion/clj-xchart
+--
+user=> (require '[com.hypirion.clj-xchart :as c])
+
+user=> (def chart
+         (c/xy-chart {"Expected rate" [(range 10) (range 10)]
+                      "Actual rate" [(range 10) (map #(+ % (rand-int 5) -2) (range 10))]}))
+#'user/chart
+
+user=> (c/view chart)
+```
+이렇게하면 차트가 보인다.
+
+#### jpg 이미지로 뽑으려면!
+
+```
+(c/spit chart "file_name" :jpg)
+```
+
 ## env
 
 * local에서만 쓰는 환경변수를 파일로 구성하고 싶다.
@@ -41,4 +75,3 @@
 
 * system, 환경이나 from-env로는 못읽는건가 -\_-
 * System.getenv와  System.getProperty의 차이는 뭐지, 이 두개도 머지를 하는데?
-
