@@ -64,3 +64,14 @@ mysql>  select @@session.time_zone;
 1 row in set (0.00 sec)
 ```
 
+## 테이블 내용 모두 삭제하기
+
+```
+delete from table_name;
+```
+
+## 테이블 데이터 갯수
+
+```
+select count(*) from table_name;
+```
