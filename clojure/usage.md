@@ -23,3 +23,9 @@
   ...
 ```
 
+## file이 있는지 확인하기
+
+```
+> (require '[clojure.java.io :as io] )
+> (.exists (io/as-file "test.txt"))
+```
