@@ -12,3 +12,8 @@ description: 요즘은 주로 spacemacs를 쓰고 있습니다.
 
 설명들에서 `SPC`키로 하는 커맨드들은 `M-m`으로 대체할 수 있다.
 
+## clojure (mode)
+
+`dotspacemacs-configuration-layers`에 clojure를 추가하면,
+별도로 cider를 설치하지 않아도 cider를 쓸 수 있다.
+
