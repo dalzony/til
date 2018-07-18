@@ -66,12 +66,13 @@ mysql>  select @@session.time_zone;
 
 ## 테이블 내용 모두 삭제하기
 
-```
+```text
 delete from table_name;
 ```
 
 ## 테이블 데이터 갯수
 
-```
+```text
 select count(*) from table_name;
 ```
+

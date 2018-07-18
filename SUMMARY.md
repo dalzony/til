@@ -8,6 +8,7 @@
   * [web](clojure/web.md)
   * [4clojure](clojure/4clojure.md)
   * [testing](clojure/testing.md)
+* [Emacs-spacemacs](emacs.md)
 * [DB](db/README.md)
   * [mongodb](db/mongodb.md)
   * [mysql](db/mysql.md)

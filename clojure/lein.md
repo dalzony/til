@@ -4,9 +4,9 @@
 
 ## lein try
 
-https://github.com/rkneufeld/lein-try
+[https://github.com/rkneufeld/lein-try](https://github.com/rkneufeld/lein-try)
 
-```
+```text
 ;; All alone:
 [lein-try "0.4.3"]
 
@@ -16,7 +16,7 @@ https://github.com/rkneufeld/lein-try
 
 ### xchart를 lein try로 사용해보기
 
-```
+```text
 $ lein try com.hypirion/clj-xchart
 --
 user=> (require '[com.hypirion.clj-xchart :as c])
@@ -28,11 +28,12 @@ user=> (def chart
 
 user=> (c/view chart)
 ```
+
 이렇게하면 차트가 보인다.
 
 #### jpg 이미지로 뽑으려면!
 
-```
+```text
 (c/spit chart "file_name" :jpg)
 ```
 
@@ -75,3 +76,4 @@ user=> (c/view chart)
 
 * system, 환경이나 from-env로는 못읽는건가 -\_-
 * System.getenv와  System.getProperty의 차이는 뭐지, 이 두개도 머지를 하는데?
+

@@ -25,14 +25,14 @@
 
 ## file이 있는지 확인하기
 
-```
+```text
 > (require '[clojure.java.io :as io] )
 > (.exists (io/as-file "test.txt"))
 ```
 
-## 어제 날짜 구하기 (clj-time사용)
+## 어제 날짜 구하기 \(clj-time사용\)
 
-```clojure
+```text
 (:require [clj-time.core :as t])
 ;;어제
 (t/minus (t/now) (t/days 1))
@@ -40,3 +40,4 @@
 ;;그제
 (t/minus (t/now) (t/days 2))
 ```
+
