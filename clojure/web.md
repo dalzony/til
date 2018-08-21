@@ -11,7 +11,7 @@ xchart쪽에서 unicode로 검색해 찾다보니, 관련 이슈를 찾아냈다
 - https://github.com/knowm/XChart/issues/260
 
 한글폰트가 서버에는 존재하지 않아서 표현을 못하는 문제였다.
-한글 폰트를 리눅스에 설치해 해결했다. 한글 폰트 설치과정은 [여기]에서
+한글 폰트를 리눅스에 설치해 해결했다. 한글 폰트 설치과정은 [여기](https://dalzony.gitbook.io/til/util#undefined) 에서
 
 ## conman 라이브러리 사용시, jdbc driver 에러
 
