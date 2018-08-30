@@ -1,5 +1,11 @@
 # Util
 
+## oh-my-zsh 설치
+
+```
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
 ## 리눅스: 한글 폰트 확인 및 설치하기
 
 ```
