@@ -9,6 +9,36 @@ description: 요즘은 주로 spacemacs를 쓰고 있습니다.
  - https://www.youtube.com/user/Seorenn
 - clojure+spacemacs 설명이 잘된 곳: https://practicalli.github.io/spacemacs/
 
+## 설치
+
+### emacs 설치
+
+- 참고: https://github.com/syl20bnr/spacemacs#macos 에서 잘 가이드 하고 있다
+
+
+맥 기본 emacs는 버젼이 낮으니까
+
+```sh
+brew install emacs
+
+```
+
+그리고 나서
+
+```
+$ brew tap d12frosted/emacs-plus
+$ brew install emacs-plus
+# $ brew linkapps emacs-plus => (linkapp 명령어는 더이상 먹히지 않아서 다음과 같이 수정)
+$ ln -s /usr/local/Cellar/emacs-plus/26.1/Emacs.app /Applications 
+
+```
+
+잘되면 spacemacs를 설치한다
+
+```
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+```
+
 ## `SPC`키는 `M-m`으로 대체
 
 설명들에서 `SPC`키로 하는 커맨드들은 `M-m`으로 대체할 수 있다.
