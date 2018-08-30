@@ -6,6 +6,29 @@
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
+## mac 키 설정 관련
+
+- 맥이 요즘(?) caps lock 대신 한/영 키를 지원하는데, 나는 caps lock을 ctrl로 쓰는 사람이라 매우 불편하다.
+- 시스템 설정등에서 바꿀 수 있다.
+
+### 한/영 키 설정 해제
+
+<img width="265" alt="2018-08-27 5 19 52" src="https://user-images.githubusercontent.com/562341/44831564-15f5c180-ac62-11e8-99a8-e4f87f9500e6.png">
+
+
+### caps lock을 control로 바꾸기
+
+시스템 환경 설정 > 키보드 > (오른쪽 하위의) 보조키
+
+<img width="419" alt="2018-08-30 2 44 15" src="https://user-images.githubusercontent.com/562341/44831824-307c6a80-ac63-11e8-929c-187c7f6206a4.png">
+
+### 한/영키 변환은 cmd+space로
+
+<img width="599" alt="2018-08-27 5 21 53" src="https://user-images.githubusercontent.com/562341/44831563-15f5c180-ac62-11e8-84b8-ca36de29be37.png">
+
+- 덤: spotlight는 control + cmd + space 로 수정
+
+
 ## 리눅스: 한글 폰트 확인 및 설치하기
 
 ```
