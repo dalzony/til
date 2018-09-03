@@ -28,7 +28,12 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 - 덤: spotlight는 control + cmd + space 로 수정
 
+## 하이 시에라 (High sierra)에서 한/영키 오류 문제
 
+- `한글` 인데 한글이 안적히거나, 전환이 안되는 문제
+- system환경 설정 - Siri - 키보드 단축키 (끔) 
+  - 이렇게 해도 완벽한 해결은 안되는 것 같음
+  
 ## 리눅스: 한글 폰트 확인 및 설치하기
 
 ```
