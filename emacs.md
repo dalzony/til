@@ -26,6 +26,9 @@ brew install emacs
 그리고 나서
 
 ```
+$ brew cask install emacs // gui 로 띄우기 위함
+
+
 $ brew tap d12frosted/emacs-plus
 $ brew install emacs-plus
 # $ brew linkapps emacs-plus => (linkapp 명령어는 더이상 먹히지 않아서 다음과 같이 수정)
